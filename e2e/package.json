@@ -18,7 +18,7 @@
   },
   "detox": {
     "test-runner": "jest",
-    "runner-config": "jest.config.json",
+    "runner-config": "./jest.config.js",
     "session": {
       "server": "ws://localhost:8099",
       "sessionId": "YourProjectSessionId"

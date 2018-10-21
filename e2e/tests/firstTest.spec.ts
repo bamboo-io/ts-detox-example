@@ -14,10 +14,22 @@ describe("Example", () => {
   });
 
   it("should reverse text in text input", async () => {
+    const input = "abcdefghijklmnopqrstuvwxyz";
     await element(by.id("textInput")).tap();
-    await element(by.id("textInput")).typeText("abcdefghijklmnopqrstuvwxyz");
+    await element(by.id("textInput")).typeText(input);
     await expect(element(by.id("reversedText"))).toHaveText(
-      "zyxwvutsrqponmlkjihgfedcba"
+      reverse("abcdefghijklmnopqrstuvwxyz")
     );
   });
 });
+
+// Verify that we can use TypeScript constructs
+function reverse(a?: string) {
+  if (a) {
+    return a
+      .split("")
+      .reverse()
+      .join("");
+  }
+  return "";
+}
