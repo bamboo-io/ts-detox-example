@@ -10,6 +10,7 @@ describe("Example", () => {
   it("should show hello screen after tap", async () => {
     await element(by.id("button")).tap();
     await expect(element(by.text("Hello World!"))).toBeVisible();
+    await element(by.text("OK")).tap();
   });
 
   it("should reverse text in text input", async () => {

@@ -1,3 +1,6 @@
 rootProject.name = 'TsDetox'
 
 include ':app'
+
+include ':detox'
+project(':detox').projectDir = new File(rootProject.projectDir, '../e2e/node_modules/detox/android/detox')

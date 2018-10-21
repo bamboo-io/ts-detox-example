@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "detox": "^9.0.4"
+    "detox": "^9.0.4",
+    "jest": "^23.6.0"
   },
   "scripts": {
     "start": "detox run-server",
@@ -23,10 +24,19 @@
         "build": "xcodebuild -project ../ios/TsDetox.xcodeproj -scheme TsDetox -configuration Debug -sdk iphonesimulator -derivedDataPath ../ios/build",
         "type": "ios.simulator",
         "name": "iPhone X"
+      },
+      "android.emu.debug": {
+        "binaryPath": "../android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd ../android; ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug; cd ../e2e",
+        "type": "android.emulator",
+        "name": "Pixel_2_API_27"
+      },
+      "android.emu.release": {
+        "binaryPath": "../android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd ../android; ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release; cd ../e2e",
+        "type": "android.emulator",
+        "name": "Pixel_2_API_27"
       }
     }
-  },
-  "dependencies": {
-    "jest": "^23.6.0"
   }
 }
