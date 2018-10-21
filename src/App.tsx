@@ -25,7 +25,7 @@ export default class App extends Component<Props, State> {
   public render() {
     const { text } = this.state;
     return (
-      <View style={styles.container}>
+      <View testID="welcome" style={styles.container}>
         <Text style={styles.welcome}>TypeScript Detox Example</Text>
         <Button
           testID="button"
@@ -40,8 +40,8 @@ export default class App extends Component<Props, State> {
           style={styles.textInput}
           onChangeText={(text) => this.setState({ text })}
         />
+        <Text>The above but reversed: {"\n"}</Text>
         <Text testID="reversedText" style={styles.reversedText}>
-          The above but reversed: {"\n"}
           {this.reverseText(text)}
         </Text>
       </View>
