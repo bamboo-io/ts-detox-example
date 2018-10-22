@@ -13,8 +13,6 @@ This project uses [emin93's react-native-template-typescript](https://github.com
 
 The main goal of this project is to demonstrate how to incorporate Detox into a pre-existing TS/RN/Jest project, but you can use it as a starter template as well.
 
-I plan on writing an article detailing how to integrate Detox into your TS/RN project, but for now, I would recommend looking at the commit history as I've detailed the steps taken in each commit's description
-
 ## FAQ
 
 ### Adding support for `baseUrl`/`paths`
@@ -22,7 +20,11 @@ I plan on writing an article detailing how to integrate Detox into your TS/RN pr
 If you want to use TypeScript's `baseUrl` and `paths` options, you'll need to configure
 
 - Babel (for development) - Babel won't natively transform your module paths like TypeScript would, so you'll need to provide a plugin that will mimic that behavior.
-  - Add `babel-plugin-module-resolver` to your project dependencies
+  - Add [`babel-plugin-module-resolver`](https://github.com/tleunen/babel-plugin-module-resolver) to your project dependencies:
+  ```sh
+  npm install -D babel-plugin-module-resolver
+  # yarn: yarn add -D babel-plugin-module-resolver
+  ```
   - In `babel.config.js`, add the following:
   ```js
   // ...
