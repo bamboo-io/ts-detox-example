@@ -41,6 +41,11 @@ If you want to use TypeScript's `baseUrl` and `paths` options, you'll need to co
   ```
 - `ts-jest` - Refer to [this section](https://kulshekhar.github.io/ts-jest/user/config/#paths-mapping) in the `ts-jest` docs.
 
+## TODO
+
+- [ ] Write documentation on setting this up from scratch
+- [ ] Create a script/tool to automate creating projects with this structure
+
 ## Contributing
 
 Issues and PRs are welcome!
