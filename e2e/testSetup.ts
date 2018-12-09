@@ -1,6 +1,6 @@
 // This _must_ be renamed because the typings for Detox declare `detox` as a global const
 const detox_ = require("detox");
-const config = require("./package.json").detox;
+const config = require("../package.json").detox;
 const adapter = require("detox/runners/jest/adapter");
 
 jest.setTimeout(120000);
