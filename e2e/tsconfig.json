@@ -1,5 +1,7 @@
 {
-  "extends": "../tsconfig.jest.json",
-  "include": ["../e2e/"],
-  "exclude": []
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types"]
+  }
 }
