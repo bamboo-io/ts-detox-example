@@ -4,7 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android:simulator": "node node_modules/react-native/local-cli/cli.js run-android",
+    "android:device": "node node_modules/react-native/local-cli/cli.js run-ios --device",
+    "ios:simulator": "node node_modules/react-native/local-cli/cli.js run-ios --simulator=\"iPhone 7\"",
+    "ios:simulator:x": "node node_modules/react-native/local-cli/cli.js run-ios --simulator=\"iPhone X\"",
+    "ios:device": "node node_modules/react-native/local-cli/cli.js run-ios --device",
     "test": "jest",
+    "test:e2e:build": "cd test && yarn install && detox build -c ios.sim.release && cd ..",
+    "test:e2e": "detox test --configuration ios.sim.release",
     "tsc": "tsc"
   },
   "dependencies": {
