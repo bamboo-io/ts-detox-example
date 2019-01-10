@@ -23,14 +23,14 @@
     "react-native": "0.57.2"
   },
   "devDependencies": {
-    "@types/detox": "^9.0.0",
+    "@types/detox": "9.0.5",
     "@types/jasmine": "^2.8.9",
     "@types/jest": "^23.3.5",
     "@types/react": "^16.4.18",
     "@types/react-native": "^0.57.7",
     "@types/react-test-renderer": "^16.0.3",
     "babel-jest": "23.6.0",
-    "detox": "^9.0.4",
+    "detox": "9.1.2",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.48.1",
     "react-test-renderer": "16.6.0-alpha.8af6728",

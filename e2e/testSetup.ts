@@ -1,5 +1,5 @@
-import detox from "detox";
-import adapter from "detox/runners/jest/adapter";
+import detox = require("detox");
+import adapter = require("detox/runners/jest/adapter");
 
 const config = require("../package.json").detox;
 
