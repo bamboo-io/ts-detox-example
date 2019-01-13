@@ -36,6 +36,9 @@ brew uninstall node@6
 brew install node@8
 brew link node@8 --force --overwrite
 
+echo "Display version of Node.js installed by brew"
+node --version
+
 echo "Installing dependencies for the App..."
 yarn install
 
