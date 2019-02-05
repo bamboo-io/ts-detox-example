@@ -1,13 +1,13 @@
-// This _must_ be renamed because the typings for Detox declare `detox` as a global const
-const detox_ = require("detox");
+import detox from "detox";
+import adapter from "detox/runners/jest/adapter";
+
 const config = require("./package.json").detox;
-const adapter = require("detox/runners/jest/adapter");
 
 jest.setTimeout(120000);
 jasmine.getEnv().addReporter(adapter);
 
 beforeAll(async () => {
-  await detox_.init(config);
+  await detox.init(config);
 });
 
 beforeEach(async () => {
@@ -16,5 +16,5 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await adapter.afterAll();
-  await detox_.cleanup();
+  await detox.cleanup();
 });
