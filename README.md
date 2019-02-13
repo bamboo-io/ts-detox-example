@@ -13,6 +13,10 @@ This project uses [emin93's react-native-template-typescript](https://github.com
 
 The main goal of this project is to demonstrate how to incorporate Detox into a pre-existing TS/RN/Jest project, but you can use it as a starter template as well.
 
+## React Native CLI template
+
+You can create a project similar to this one using the React Native CLI and [`react-native-template-ts-detox-jest`](https://github.com/solkaz/react-native-template-ts-detox-jest)
+
 ## FAQ
 
 ### Adding support for `baseUrl`/`paths`
@@ -42,11 +46,12 @@ If you want to use TypeScript's `baseUrl` and `paths` options, you'll need to co
   // ...
   ```
 - `ts-jest` - Refer to [this section](https://kulshekhar.github.io/ts-jest/user/config/#paths-mapping) in the `ts-jest` docs.
+- When running iOS, you may encounter "Multiple commands produce ..." if you're using XCode 10. This is usually fixed by forcing XCode to [use the legacy build system](https://stackoverflow.com/a/53131590/2312400)
 
 ## TODO
 
 - [ ] Write documentation on setting this up from scratch
-- [ ] Create a script/tool to automate creating projects with this structure
+- [x] ~~Create a script/tool to automate creating projects with this structure~~
 
 ## Contributing
 

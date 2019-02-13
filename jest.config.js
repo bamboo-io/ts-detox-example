@@ -11,7 +11,7 @@ module.exports = {
   globals: {
     "ts-jest": {
       babelConfig: true,
-      tsConfig: "tsConfig.jest.json",
+      tsConfig: "tsconfig.jest.json",
     },
   },
   cacheDirectory: ".jest/cache",

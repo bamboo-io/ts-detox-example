@@ -1,3 +1,5 @@
+import { expect, device, element, by } from "detox";
+
 describe("Example", () => {
   beforeEach(async () => {
     await device.reloadReactNative();
@@ -18,7 +20,7 @@ describe("Example", () => {
     await element(by.id("textInput")).tap();
     await element(by.id("textInput")).typeText(input);
     await expect(element(by.id("reversedText"))).toHaveText(
-      reverse("abcdefghijklmnopqrstuvwxyz")
+      reverse("abcdefghijklmnopqrstuvwxyz"),
     );
   });
 });
