@@ -10,8 +10,12 @@
     "ios:simulator:x": "node node_modules/react-native/local-cli/cli.js run-ios --simulator=\"iPhone X\"",
     "ios:device": "node node_modules/react-native/local-cli/cli.js run-ios --device",
     "test": "jest",
-    "test:e2e:build": "cd test && yarn install && detox build -c ios.sim.release && cd ..",
-    "test:e2e": "detox test --configuration ios.sim.release",
+    "build:ios": "detox build -c ios.sim.release",
+    "build:android": "detox build -c android.emu.release.nexus6p",
+    "test:ios": "detox test -c ios.sim.release",
+    "test:ios:ci": "detox test -c ios.sim.release --cleanup",
+    "test:android": "detox test -c android.emu.release.nexus6p",
+    "test:android:ci": "detox test -c android.emu.release.nexus6p",
     "tsc": "tsc"
   },
   "dependencies": {
@@ -37,16 +41,30 @@
   "detox": {
     "test-runner": "jest",
     "runner-config": "./e2e/jest.config.js",
-    "session": {
-      "server": "ws://localhost:8099",
-      "sessionId": "YourProjectSessionId"
-    },
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "./ios/build/Build/Products/Debug-iphonesimulator/TsDetox.app",
-        "build": "xcodebuild -project ./ios/TsDetox.xcodeproj -scheme TsDetox -configuration Debug -sdk iphonesimulator -derivedDataPath ./ios/build",
+        "build": "set -o pipefail && xcodebuild -project ./ios/TsDetox.xcodeproj -UseNewBuildSystem=NO -scheme TsDetox -configuration Debug -sdk iphonesimulator -derivedDataPath ./ios/build | xcpretty",
         "type": "ios.simulator",
         "name": "iPhone X"
+      },
+      "ios.sim.release": {
+        "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/TsDetox.app",
+        "build": "set -o pipefail && export CODE_SIGNING_REQUIRED=NO && export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -project ./ios/TsDetox.xcodeproj -UseNewBuildSystem=NO -scheme TsDetox -configuration Release -sdk iphonesimulator -derivedDataPath ./ios/build | xcpretty",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      },
+      "android.emu.debug.nexus6p": {
+        "binaryPath": "./android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "./android/gradlew assembleDebug assembleAndroidTest installDebug -DtestBuildType=debug -p ./android",
+        "type": "android.emulator",
+        "name": "Nexus_6P_API_27"
+      },
+      "android.emu.release.nexus6p": {
+        "binaryPath": "./android/app/build/outputs/apk/release/app-release.apk",
+        "build": "./android/gradlew assembleRelease assembleAndroidTest -DtestBuildType=release -p ./android",
+        "type": "android.emulator",
+        "name": "Nexus_6P_API_27"
       },
       "android.emu.debug": {
         "binaryPath": "./android/app/build/outputs/apk/debug/app-debug.apk",

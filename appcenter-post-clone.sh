@@ -39,13 +39,10 @@ brew link node@8 --force --overwrite
 echo "Display version of Node.js installed by brew"
 node --version
 
-echo "Installing dependencies for the App..."
+echo "Installing dependencies for the App & Detox tests, implemented in Typescript..."
 yarn install
 
-echo "Installing dependencies for detox tests..."
-ls -lh e2/
-cd e2e
-npm install
+ls -lh e2e/
 
 echo "Building the project for Detox tests..."
 yarn build:${MOBILE_OS:-ios}
